@@ -11,6 +11,7 @@ public class Player_Movement : MonoBehaviour {
     float xInput;
     float yInput;
 
+    Vector3 dir;
     Rigidbody2D rb2d;
 
     Vector3 previousGood = Vector3.zero;
@@ -29,7 +30,15 @@ public class Player_Movement : MonoBehaviour {
             xInput = Input.GetAxisRaw("Horizontal");
             yInput = Input.GetAxisRaw("Vertical");
 
-            Vector3 dir = new Vector2(xInput, yInput) * speed;
+            //Vector3 dir = new Vector2(xInput, yInput) * speed;
+
+            if (xInput != 0)
+                dir = new Vector2(xInput * speed, 0);
+            else if (yInput != 0)
+                dir = new Vector2(0, yInput * speed);
+            else
+                dir = new Vector2(0, 0);
+
             rb2d.velocity = dir;
 
             if (dir == Vector3.zero)
