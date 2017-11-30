@@ -6,6 +6,7 @@ public class Player_Movement : MonoBehaviour {
 
     public float speed;
     public float checkDist;
+    public bool interacting;
 
     float xInput;
     float yInput;
@@ -18,33 +19,39 @@ public class Player_Movement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        interacting = false;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        xInput = Input.GetAxisRaw("Horizontal");
-        yInput = Input.GetAxisRaw("Vertical");
-
-        Vector3 dir = new Vector2(xInput, yInput) * speed;
-        rb2d.velocity = dir;
-
-        if (dir == Vector3.zero)
+        if (!interacting)
         {
-            dir = previousGood;
-        }
-        else
-        {
-            previousGood = dir;
-        }
+            xInput = Input.GetAxisRaw("Horizontal");
+            yInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            foundHit = Physics2D.Raycast(transform.position, dir, checkDist, 1 << LayerMask.NameToLayer("Wall"));
-            Debug.DrawRay(transform.position, dir, Color.green);
+            Vector3 dir = new Vector2(xInput, yInput) * speed;
+            rb2d.velocity = dir;
 
-            if (foundHit.collider != null)
+            if (dir == Vector3.zero)
             {
-                Debug.Log("Looking at a thing: " + foundHit.transform.name);
+                dir = previousGood;
+            }
+            else
+            {
+                previousGood = dir;
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                foundHit = Physics2D.Raycast(transform.position, dir, checkDist, 1 << LayerMask.NameToLayer("Wall"));
+                Debug.DrawRay(transform.position, dir, Color.green);
+
+                if (foundHit.collider != null)
+                {
+                    Debug.Log("Looking at a thing: " + foundHit.transform.name);
+                    foundHit.collider.gameObject.GetComponent<Object_Interact>().DisplayText();
+                    interacting = true;
+                }
             }
         }
     }
