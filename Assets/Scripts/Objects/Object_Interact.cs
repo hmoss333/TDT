@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Object_Interact : MonoBehaviour {
 
-    public string text;
-    //public bool interacting;
+    public string[] text;
+    int currentText;
 
     public Text textBubble;
     public GameObject uiBox;
@@ -26,10 +26,10 @@ public class Object_Interact : MonoBehaviour {
 
     public void DisplayText ()
     {
-        Debug.Log("Displaying Text...");
+        Debug.Log("Displaying Text: " + currentText);
 
         uiBox.SetActive(true);
-        textBubble.text = text;
+        textBubble.text = text[currentText];
         StartCoroutine(WaitForInput());
     }
 
@@ -41,7 +41,16 @@ public class Object_Interact : MonoBehaviour {
         while (!Input.GetButton("Jump"))
             yield return null;
 
-        uiBox.SetActive(false);
-        player.interacting = false;
+        if (currentText < text.Length - 1) //If there are still text options to go through
+        {
+            currentText++;
+            DisplayText();
+        }
+        else //If the player has reached the end of the text options
+        {
+            currentText = 0;
+            uiBox.SetActive(false);
+            player.interacting = false;
+        }
     }
 }
