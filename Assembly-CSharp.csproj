@@ -46,11 +46,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Objects\Object_Door.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Interact.cs" />
      <Compile Include="Assets\Scripts\Player\Inventory\BasicContainer.cs" />
      <Compile Include="Assets\Scripts\Player\Inventory\BasicItem.cs" />
      <Compile Include="Assets\Scripts\Player\Inventory\ContainerWindow.cs" />
      <Compile Include="Assets\Scripts\Player\Inventory\ItemSlot.cs" />
+     <Compile Include="Assets\Scripts\Player\Player_CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Inventory.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Movement.cs" />
  <Reference Include="UnityEngine.UI">
