@@ -14,7 +14,8 @@ public class Player_Movement : MonoBehaviour {
     Vector3 dir;
     Rigidbody2D rb2d;
     Animator anim;
-    string lastInput;
+    [HideInInspector]
+    public string lastInput;
 
     Vector3 previousGood = Vector3.zero;
     RaycastHit2D foundHit;
