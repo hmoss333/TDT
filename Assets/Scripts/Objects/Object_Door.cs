@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Object_Door : MonoBehaviour {
 
+    //[HideInInspector]
     public bool canUse;
-    string lastInput;
-    bool moving = false;
+    public enum ExitDir { up, left, right, down }
+    public ExitDir exitDir;
 
     public GameObject doorExit;
 
@@ -20,14 +21,13 @@ public class Object_Door : MonoBehaviour {
         cam = GameObject.FindObjectOfType<Camera>();
         anim = GetComponent<Animator>();
         player = GameObject.FindObjectOfType<Player_Movement>();
-
-        //anim.SetTrigger("Idle");
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (moving)
+	void FixedUpdate () {
+        if (!canUse)
         {
+            player.interacting = true;
             player.transform.position += tempDir * Time.deltaTime;
         }
     }
@@ -35,17 +35,15 @@ public class Object_Door : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D col)
     {
         anim.SetTrigger("Enter");
+        player.interacting = false;
 
         if (col.tag == "Player" && canUse)
         {
-            canUse = false;
-            Debug.Log("Using door");
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             col.gameObject.transform.position = doorExit.transform.position;
             cam.gameObject.transform.position = col.gameObject.transform.position;
             doorExit.GetComponent<Object_Door>().canUse = false;
-
-            lastInput = col.GetComponent<Player_Movement>().lastInput;
-            doorExit.GetComponent<Object_Door>().MoveOutOfDoor(col.gameObject, lastInput);
+            doorExit.GetComponent<Object_Door>().MoveOutOfDoor();
         }
     }
 
@@ -56,30 +54,43 @@ public class Object_Door : MonoBehaviour {
         if (col.tag == "Player" && !canUse)
         {
             canUse = true;
-            moving = false;
+            StartCoroutine(WaitToFinish());
         }
     }
 
-    void MoveOutOfDoor(GameObject target, string direction)
+    void MoveOutOfDoor()
     {
-        switch (direction)
+        switch (exitDir)
         {
-            case "up":
+            case ExitDir.up:
                 tempDir = new Vector2(0, 1f);
+                player.lastInput = Player_Movement.LastInput.up;
+                Debug.Log("Move Up");
                 break;
-            case "left":
+            case ExitDir.left:
                 tempDir = new Vector2(-1f, 0);
+                player.lastInput = Player_Movement.LastInput.left;
+                Debug.Log("Move Left");
                 break;
-            case "right":
+            case ExitDir.right:
                 tempDir = new Vector2(1f, 0);
+                player.lastInput = Player_Movement.LastInput.right;
+                Debug.Log("Move Right");
                 break;
-            case "down":
-                tempDir = new Vector2(0, - 1f);
+            case ExitDir.down:
+                tempDir = new Vector2(0, -1f);
+                player.lastInput = Player_Movement.LastInput.down;
+                Debug.Log("Move Down");
                 break;
             default:
+                Debug.Log("I'm not even mad, thats impressive");
                 break;
         }
+    }
 
-        moving = true;
+    IEnumerator WaitToFinish()
+    {
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length - 0.5f);
+        player.interacting = false;
     }
 }

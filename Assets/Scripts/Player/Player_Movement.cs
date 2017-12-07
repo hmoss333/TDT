@@ -15,7 +15,8 @@ public class Player_Movement : MonoBehaviour {
     Rigidbody2D rb2d;
     Animator anim;
     [HideInInspector]
-    public string lastInput;
+    public enum LastInput { up, left, right, down};
+    public LastInput lastInput;
 
     Vector3 previousGood = Vector3.zero;
     RaycastHit2D foundHit;
@@ -31,16 +32,16 @@ public class Player_Movement : MonoBehaviour {
     {
         switch (lastInput)
         {
-            case "up":
+            case LastInput.up:
                 anim.SetTrigger("IdleUp");
                 break;
-            case "left":
+            case LastInput.left:
                 anim.SetTrigger("IdleLeft");
                 break;
-            case "right":
+            case LastInput.right:
                 anim.SetTrigger("IdleRight");
                 break;
-            case "down":
+            case LastInput.down:
                 anim.SetTrigger("IdleDown");
                 break;
             default:
@@ -64,12 +65,12 @@ public class Player_Movement : MonoBehaviour {
                 if (xInput > 0)
                 {
                     anim.SetTrigger("MoveRight");
-                    lastInput = "right";
+                    lastInput = LastInput.right;
                 }
                 else
                 {
                     anim.SetTrigger("MoveLeft");
-                    lastInput = "left";
+                    lastInput = LastInput.left;
                 }
             }
             else if (yInput != 0)
@@ -78,12 +79,12 @@ public class Player_Movement : MonoBehaviour {
                 if (yInput > 0)
                 {
                     anim.SetTrigger("MoveUp");
-                    lastInput = "up";
+                    lastInput = LastInput.up;
                 }
                 else
                 {
                     anim.SetTrigger("MoveDown");
-                    lastInput = "down";
+                    lastInput = LastInput.down;
                 }
             }
             else
