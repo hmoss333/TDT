@@ -3,41 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Object_Interact : MonoBehaviour {
+public class Object_Interact_Text : Object_Interact_Parent {
 
     public string[] text;
     int currentText;
 
-    Text textBubble;
-    GameObject uiBox;
-    bool waitForInput;
+    //Text textBubble;
+    //GameObject uiBox;
 
-    Player_Movement player;
-
-    private void Awake()
-    {
-        textBubble = GameObject.Find("Text").GetComponent<Text>();
-        uiBox = GameObject.Find("UIBox");
-    }
+    //bool waitForInput;
 
     // Use this for initialization
-    void Start () {
-        //interacting = false;
-        player = GameObject.FindObjectOfType<Player_Movement>();
+    //void Start () {
+    //    base.Start();
+    //}
 
-        if (uiBox.activeSelf)
-            uiBox.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetButtonDown("Jump") && waitForInput)
-            waitForInput = false;
-        else
-            waitForInput = true;
-	}
+    // Update is called once per frame
+    //override public void Update()
+    //{
+    //    base.Update();
+    //}
 
-    public void DisplayText ()
+    override public void Interact()
+    {
+        base.Interact();
+        DisplayText();
+    }
+
+    void DisplayText()
     {
         Debug.Log("Displaying Text: " + currentText);
 
@@ -46,7 +39,7 @@ public class Object_Interact : MonoBehaviour {
         StartCoroutine(WaitForInput());
     }
 
-    IEnumerator WaitForInput ()
+    IEnumerator WaitForInput()
     {
         yield return new WaitForSeconds(0f);
         Debug.Log("Waiting for Input...");

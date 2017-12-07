@@ -12,11 +12,11 @@ public class Player_CameraFollow : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         // Temporary vector
         Vector3 temp = player.transform.position;
         temp.x = temp.x - gameObject.transform.position.x;
-        temp.y = gameObject.transform.position.y;
+        temp.y = temp.y - gameObject.transform.position.y;
         temp.z = -10f;
         // Assign value to Camera position
         transform.position += temp * Time.deltaTime;

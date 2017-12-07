@@ -110,7 +110,7 @@ public class Player_Movement : MonoBehaviour {
                 if (foundHit.collider != null)
                 {
                     Debug.Log("Looking at a thing: " + foundHit.transform.name);
-                    foundHit.collider.gameObject.GetComponent<Object_Interact>().DisplayText();
+                    foundHit.collider.gameObject.GetComponent<Object_Interact_Parent>().Interact();
                     interacting = true;
                 }
             }
