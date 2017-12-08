@@ -6,6 +6,7 @@ public class Player_Movement : MonoBehaviour {
 
     public float speed;
     public float checkDist;
+    //[HideInInspector]
     public bool interacting;
 
     float xInput;

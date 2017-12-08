@@ -15,10 +15,11 @@ public class Player_CameraFollow : MonoBehaviour {
 	void Update () {
         // Temporary vector
         Vector3 temp = player.transform.position;
-        temp.x = temp.x - gameObject.transform.position.x;
-        temp.y = temp.y - gameObject.transform.position.y;
+        //temp.x = temp.x - gameObject.transform.position.x;
+        //temp.y = temp.y - gameObject.transform.position.y;
         temp.z = -10f;
         // Assign value to Camera position
-        transform.position += temp * Time.deltaTime;
+        //transform.position = temp * Time.deltaTime; //"drunk" camera follow; save for later
+        transform.position = temp;
     }
 }

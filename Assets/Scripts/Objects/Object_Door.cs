@@ -24,7 +24,7 @@ public class Object_Door : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         if (!canUse)
         {
             player.interacting = true;
@@ -35,7 +35,7 @@ public class Object_Door : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D col)
     {
         anim.SetTrigger("Enter");
-        player.interacting = false;
+        //player.interacting = false;
 
         if (col.tag == "Player" && canUse)
         {
@@ -54,7 +54,7 @@ public class Object_Door : MonoBehaviour {
         if (col.tag == "Player" && !canUse)
         {
             canUse = true;
-            StartCoroutine(WaitToFinish());
+            //StartCoroutine(WaitToFinish());
         }
     }
 
@@ -86,11 +86,15 @@ public class Object_Door : MonoBehaviour {
                 Debug.Log("I'm not even mad, thats impressive");
                 break;
         }
+
+        StartCoroutine(WaitToFinish());
     }
 
     IEnumerator WaitToFinish()
     {
+        Debug.Log("moving...");
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length - 0.5f);
         player.interacting = false;
+        Debug.Log("moved");
     }
 }
