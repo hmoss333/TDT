@@ -51,7 +51,9 @@
      <Compile Include="Assets\Scripts\Objects\Interactions\Object_Interact_Parent.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactions\Object_Interact_Text.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactions\Object_Interact_Transition.cs" />
+     <Compile Include="Assets\Scripts\Objects\NPC_Rotate.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Door.cs" />
+     <Compile Include="Assets\Scripts\Objects\Object_PickUp.cs" />
      <Compile Include="Assets\Scripts\Player\Inventory\BasicContainer.cs" />
      <Compile Include="Assets\Scripts\Player\Inventory\BasicItem.cs" />
      <Compile Include="Assets\Scripts\Player\Inventory\ContainerWindow.cs" />

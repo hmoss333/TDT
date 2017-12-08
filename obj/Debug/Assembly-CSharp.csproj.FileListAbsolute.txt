@@ -1,4 +1,3 @@
-C:\Users\HMoss\Documents\GitHub\TDT\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 C:\Users\HMoss\Documents\GitHub\TDT\Temp\bin\Debug\Assembly-CSharp.dll
 C:\Users\HMoss\Documents\GitHub\TDT\Temp\bin\Debug\Assembly-CSharp.pdb
 C:\Users\HMoss\Documents\GitHub\TDT\Temp\bin\Debug\nunit.framework.dll
@@ -29,6 +28,7 @@ C:\Users\HMoss\Documents\GitHub\TDT\Temp\bin\Debug\nunit.framework.xml
 C:\Users\HMoss\Documents\GitHub\TDT\Temp\bin\Debug\UnityEngine.Analytics.xml
 C:\Users\HMoss\Documents\GitHub\TDT\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\HMoss\Documents\GitHub\TDT\Temp\bin\Debug\UnityEngine.VR.xml
+C:\Users\HMoss\Documents\GitHub\TDT\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 C:\Users\HMoss\Documents\GitHub\TDT\obj\Debug\Assembly-CSharp.dll
 C:\Users\HMoss\Documents\GitHub\TDT\obj\Debug\Assembly-CSharp.pdb
 C:\Users\HMoss\Documents\GitHub\TDT\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
