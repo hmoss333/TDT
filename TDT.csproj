@@ -84,12 +84,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\2D\Event_2D_Leave.cs" />
+    <Compile Include="Assets\Scripts\2D\NPC_2D_Bump.cs" />
+    <Compile Include="Assets\Scripts\2D\Player_2D_Move.cs" />
+    <Compile Include="Assets\Scripts\Demo\Event_Transition.cs" />
+    <Compile Include="Assets\Scripts\Demo\NPC_Interupt.cs" />
     <Compile Include="Assets\Scripts\Objects\Interactions\Object_Interact_Choice.cs" />
     <Compile Include="Assets\Scripts\Objects\Interactions\Object_Interact_Menu.cs" />
     <Compile Include="Assets\Scripts\Objects\Interactions\Object_Interact_Parent.cs" />
     <Compile Include="Assets\Scripts\Objects\Interactions\Object_Interact_Text.cs" />
     <Compile Include="Assets\Scripts\Objects\Interactions\Object_Interact_Transition.cs" />
+    <Compile Include="Assets\Scripts\Objects\NPC_Rotate.cs" />
     <Compile Include="Assets\Scripts\Objects\Object_Door.cs" />
+    <Compile Include="Assets\Scripts\Objects\Object_PickUp.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\BasicContainer.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\BasicItem.cs" />
     <Compile Include="Assets\Scripts\Player\Inventory\ContainerWindow.cs" />
@@ -97,6 +104,7 @@
     <Compile Include="Assets\Scripts\Player\Player_CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Inventory.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Movement.cs" />
+    <Compile Include="Assets\Scripts\Rooms\Room_Overlay.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
