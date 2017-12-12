@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPC_2D_MobGen : MonoBehaviour {
 
     public GameObject[] npcMob;
-    float spawnRate;
+    public float spawnRate;
 
     public bool spawning;
     
@@ -18,17 +18,18 @@ public class NPC_2D_MobGen : MonoBehaviour {
 	void Update () {
 		if (!spawning)
         {
-            spawnRate = Random.Range(0.25f, 1f);
+            //spawnRate = Random.Range(0.25f, 1f);
             StartCoroutine(SpawnMob());
         }
 	}
 
     IEnumerator SpawnMob ()
     {
-        spawning = true;        
+        GameObject prefab;
 
-        GameObject prefab = Instantiate(npcMob[Random.Range(0, npcMob.Length)], new Vector2(1.5f, 0), Quaternion.identity);
+        spawning = true;
         yield return new WaitForSeconds(spawnRate);
+        prefab = Instantiate(npcMob[Random.Range(0, npcMob.Length)], new Vector2(1.5f, 0), Quaternion.identity);
         spawning = false;
     }
 }

@@ -18,8 +18,10 @@ public class Object_Interact_Parent : MonoBehaviour {
 
     public virtual void Awake()
     {
-        textBubble = GameObject.Find("Text").GetComponent<Text>();
-        uiBox = GameObject.Find("UIBox");
+        if (GameObject.Find("Text"))
+            textBubble = GameObject.Find("Text").GetComponent<Text>();
+        if (GameObject.Find("UIBox"))
+            uiBox = GameObject.Find("UIBox");
     }
 
     // Use this for initialization

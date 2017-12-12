@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\2D\Event_2D_Enter.cs" />
      <Compile Include="Assets\Scripts\2D\Event_2D_Leave.cs" />
      <Compile Include="Assets\Scripts\2D\NPC_2D_Bump.cs" />
      <Compile Include="Assets\Scripts\2D\NPC_2D_MobGen.cs" />

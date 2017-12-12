@@ -47,7 +47,7 @@ public class Player_2D_Move : MonoBehaviour {
         rb2d.velocity = dir;
     }
 
-    void SetIdleAnimTriggers()
+    public void SetIdleAnimTriggers()
     {
         switch (lastInput)
         {
@@ -58,7 +58,7 @@ public class Player_2D_Move : MonoBehaviour {
                 anim.SetTrigger("IdleRight");
                 break;
             default:
-                anim.SetTrigger("Idle");
+                anim.SetTrigger("IdleRight");
                 break;
         }
     }
