@@ -13,7 +13,7 @@ public class Object_Door : MonoBehaviour {
 
     Camera cam;
     Animator anim;
-    Player_Movement player;
+    public Player_Movement player;
     Vector3 tempDir;
     
     // Use this for initialization
@@ -35,7 +35,6 @@ public class Object_Door : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D col)
     {
         anim.SetTrigger("Enter");
-        //player.interacting = false;
 
         if (col.tag == "Player" && canUse)
         {
@@ -54,7 +53,6 @@ public class Object_Door : MonoBehaviour {
         if (col.tag == "Player" && !canUse)
         {
             canUse = true;
-            //StartCoroutine(WaitToFinish());
         }
     }
 
@@ -65,22 +63,18 @@ public class Object_Door : MonoBehaviour {
             case ExitDir.up:
                 tempDir = new Vector2(0, 1f);
                 player.lastInput = Player_Movement.LastInput.up;
-                Debug.Log("Move Up");
                 break;
             case ExitDir.left:
                 tempDir = new Vector2(-1f, 0);
                 player.lastInput = Player_Movement.LastInput.left;
-                Debug.Log("Move Left");
                 break;
             case ExitDir.right:
                 tempDir = new Vector2(1f, 0);
                 player.lastInput = Player_Movement.LastInput.right;
-                Debug.Log("Move Right");
                 break;
             case ExitDir.down:
                 tempDir = new Vector2(0, -1f);
                 player.lastInput = Player_Movement.LastInput.down;
-                Debug.Log("Move Down");
                 break;
             default:
                 Debug.Log("I'm not even mad, thats impressive");

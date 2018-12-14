@@ -28,8 +28,9 @@ public class NPC_2D_MobGen : MonoBehaviour {
         GameObject prefab;
 
         spawning = true;
-        yield return new WaitForSeconds(spawnRate);
+        yield return new WaitForSeconds(Random.Range(spawnRate / 2f, spawnRate));
         prefab = Instantiate(npcMob[Random.Range(0, npcMob.Length)], new Vector2(1.5f, 0), Quaternion.identity);
+        prefab.transform.parent = this.transform;
         spawning = false;
     }
 }

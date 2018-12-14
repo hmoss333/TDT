@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player_2D_Move : MonoBehaviour {
 
     public float speed;
-
     float xInput;
 
     Vector3 dir;
@@ -14,14 +13,23 @@ public class Player_2D_Move : MonoBehaviour {
     public enum LastInput { left, right };
     public LastInput lastInput;
 
+    public SpriteRenderer inputSprite;
+    [HideInInspector]
+    public bool bumping = false;
+
     // Use this for initialization
     void Start () {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    private void Update()
+    {
+        inputSprite.enabled = bumping;       
+    }
+
+    // Update is called once per frame
+    void FixedUpdate () {
         xInput = Input.GetAxisRaw("Horizontal");
 
         if (xInput != 0)

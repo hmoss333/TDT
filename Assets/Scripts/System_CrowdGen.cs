@@ -14,11 +14,6 @@ public class System_CrowdGen : MonoBehaviour {
 	void Start () {
         GenCrowd();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void GenCrowd ()
     {
@@ -32,6 +27,8 @@ public class System_CrowdGen : MonoBehaviour {
 
             if (newPlayer.GetComponent<Object_Interact_Parent>())
                 Destroy(newPlayer.GetComponent<Object_Interact_Parent>());
+
+            newPlayer.transform.parent = this.transform;
         }
     }
 }

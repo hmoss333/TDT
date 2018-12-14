@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Object_Interact_Choice : MonoBehaviour {
+public class Object_Interact_Choice : Object_Interact_Parent
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public string[] text;
+    int currentText;
+
+    override public void Interact()
+    {
+        //put interact logic here
+    }
 }

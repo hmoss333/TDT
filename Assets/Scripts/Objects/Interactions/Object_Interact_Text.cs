@@ -8,22 +8,6 @@ public class Object_Interact_Text : Object_Interact_Parent {
     public string[] text;
     int currentText;
 
-    //Text textBubble;
-    //GameObject uiBox;
-
-    //bool waitForInput;
-
-    // Use this for initialization
-    //void Start () {
-    //    base.Start();
-    //}
-
-    // Update is called once per frame
-    //override public void Update()
-    //{
-    //    base.Update();
-    //}
-
     override public void Interact()
     {
         base.Interact();
