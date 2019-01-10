@@ -7,7 +7,7 @@ public class NPC_2D_MobGen : MonoBehaviour {
     public GameObject[] npcMob;
     public float spawnRate;
 
-    public bool spawning;
+    bool spawning;
     
     // Use this for initialization
 	void Start () {
@@ -19,17 +19,17 @@ public class NPC_2D_MobGen : MonoBehaviour {
 		if (!spawning)
         {
             //spawnRate = Random.Range(0.25f, 1f);
-            StartCoroutine(SpawnMob());
+            StartCoroutine(SpawnMob(npcMob[Random.Range(0, npcMob.Length)], Random.Range(spawnRate / 2f, spawnRate)));
         }
 	}
 
-    IEnumerator SpawnMob ()
+    IEnumerator SpawnMob (GameObject mobObject, float spawnTime)
     {
         GameObject prefab;
 
         spawning = true;
-        yield return new WaitForSeconds(Random.Range(spawnRate / 2f, spawnRate));
-        prefab = Instantiate(npcMob[Random.Range(0, npcMob.Length)], new Vector2(1.5f, 0), Quaternion.identity);
+        yield return new WaitForSeconds(spawnTime);
+        prefab = Instantiate(mobObject, new Vector2(1.5f, 0), Quaternion.identity);
         prefab.transform.parent = this.transform;
         spawning = false;
     }

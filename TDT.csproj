@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\Player\Player_Movement.cs" />
     <Compile Include="Assets\Scripts\Rooms\Room_Overlay.cs" />
     <Compile Include="Assets\Scripts\System_CrowdGen.cs" />
+    <Compile Include="Assets\Scripts\System_RepairGame.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

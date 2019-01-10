@@ -25,10 +25,14 @@ public class Event_Transition : MonoBehaviour {
         {
             if (isEntrance)
             {
-                //mainCam.gameObject.SetActive(false);
+                mainCam.gameObject.SetActive(false);
                 SceneManager.LoadScene("2D_Test", LoadSceneMode.Additive);
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName("2D_Test"));
                 col.GetComponent<Player_Movement>().interacting = true;
+            }
+            else
+            {
+                mainCam.gameObject.SetActive(true);
             }
         }
     }

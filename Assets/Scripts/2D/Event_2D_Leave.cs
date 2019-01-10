@@ -9,7 +9,6 @@ public class Event_2D_Leave : MonoBehaviour {
     GameObject exit;
 
     Player_Movement player;
-    Camera mainCam;
 
     public bool isExit;
     
@@ -19,7 +18,6 @@ public class Event_2D_Leave : MonoBehaviour {
         exit = GameObject.Find("Exit");
 
         player = GameObject.FindObjectOfType<Player_Movement>();
-        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("2D_Test"));
     }
@@ -49,7 +47,6 @@ public class Event_2D_Leave : MonoBehaviour {
             SceneManager.UnloadSceneAsync("2D_Test");
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("Demo"));
 
-            mainCam.gameObject.SetActive(true);
             player.interacting = false;
         }
     }
